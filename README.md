@@ -74,29 +74,3 @@ Use this as a baseline to evaluate new spaCy releases or GPU-optimized pipelines
 
 
 
-""" 
-README — Hugging Face Transformers NVIDIA NLP Test
-
-This notebook demonstrates a comprehensive NLP evaluation using Hugging Face pipelines:
-
-Tasks Covered
-NER: Extracts entities (models, architectures, hardware terms)
-Summarization: Generates concise summaries of NVIDIA product names or descriptions
-Zero-shot Classification: Assigns each product to categories like GPU, AI System, or Platform
-Embedding Similarity: Measures semantic closeness among product names
-Models Used
-dslim/bert-base-NER — general-purpose named entity recognition
-facebook/bart-large-cnn — summarization
-facebook/bart-large-mnli — zero-shot classification
-sentence-transformers/all-MiniLM-L6-v2 — sentence embeddings for similarity
-How to Run
-Install dependencies via pip commands in the setup cell.
-Run all cells sequentially in a Jupyter or Colab environment.
-Review outputs printed for each NVIDIA product name.
-Modify candidate_labels or extend with your own data for custom evaluations.
-Extension Ideas
-Replace MiniLM with bge-large or text-embedding-3-large for higher embedding accuracy.
-Use faiss or qdrant for scalable vector similarity search.
-Add question-answering (pipeline('question-answering')) for product feature extraction.
-Integrate results into a FastAPI or Streamlit dashboard. 
-"""
