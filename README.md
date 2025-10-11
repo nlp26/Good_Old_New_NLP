@@ -1,103 +1,103 @@
-# Good_Old_New_NLP
-Old NLP Solutions in modern stack
+Good_Old_New_NLP
 
--------------------------------------------------------------------------------------------------------------------------------
+Old NLP Solutions in a Modern Stack
 
-https://github.com/nlp26/Good_Old_New_NLP/blob/main/amazon_torch_NLP.ipynb
-
-"""
-README — Amazon Review Sentiment Analysis with LSTM
-This notebook demonstrates a complete workflow for sentiment analysis on the Amazon Polarity dataset using a Long Short-Term Memory (LSTM) network built with PyTorch.
+This repository demonstrates classic NLP techniques reimagined using modern frameworks and libraries such as PyTorch, spaCy, and Hugging Face Transformers.
+Each notebook revisits a traditional NLP task with current best practices, powerful pretrained models, and a clean, extensible structure.
+------------------------------------------------
+📘 1. Amazon Review Sentiment Analysis with LSTM
+Notebook: amazon_torch_NLP.ipynb
 
 🔍 Overview
-Trains an LSTM model to classify Amazon reviews as positive or negative.
-Uses the datasets library for data handling and torchtext for tokenization and batching.
-Implements all major NLP preprocessing, training, and evaluation steps in a reproducible pipeline.
+Implements sentiment classification on the Amazon Polarity dataset using a Long Short-Term Memory (LSTM) network in PyTorch.
 
-⚙️ What the Notebook Covers
-Data Loading – Load Amazon Polarity dataset via datasets.load_dataset.
-Preprocessing – Extract review texts and labels; perform text cleaning and tokenization.
-Splitting – Create training and validation subsets.
-Vocabulary & Tokenizer – Build a word-level vocabulary using torchtext.
-Custom Dataset – Define a PyTorch Dataset for batched text inputs.
-DataLoaders – Create loaders for efficient mini-batch training.
-Model Architecture – Define a simple LSTM classifier using nn.Embedding, nn.LSTM, and nn.Linear.
-Training Loop – Optimize model with Adam, compute loss (BCE/CE), and track metrics per epoch.
-Evaluation – Compute accuracy, precision, recall, and F1-score.
-Model Saving – Save the trained model’s state_dict for reuse.
-Prediction – Provide a helper function to classify new text samples.
+⚙️ Workflow
+Data Loading: Import the dataset via datasets.load_dataset.
+Preprocessing: Clean, tokenize, and label text.
+Splitting: Train/validation data separation.
+Vocabulary & Tokenizer: Build a torchtext vocabulary.
+Custom Dataset: Define a PyTorch Dataset for batching.
+Model Architecture: Create an LSTM classifier with nn.Embedding, nn.LSTM, and nn.Linear.
+Training Loop: Optimize using Adam, monitor loss and metrics.
+Evaluation: Compute accuracy, precision, recall, and F1-score.
+Save & Predict: Export model weights and predict new samples.
 
-🧪 Performance & Results
-Measures training and validation accuracy per epoch.
-Outputs confusion matrix and per-class performance metrics.
-Demonstrates generalization ability across validation data.
+🧪 Results
+Tracks training/validation metrics.
+Displays confusion matrix and evaluation summary.
+Demonstrates reproducible performance on unseen data.
 
 💾 How to Run
-Ensure you have dependencies installed:
 pip install datasets torch torchtext scikit-learn
-Open the notebook in Jupyter or Google Colab.
-Run all cells sequentially — model training and evaluation will execute automatically.
-Use the provided predict_sentiment() function for inference on custom text inputs.
+
+Run all cells in Jupyter or Colab, then use predict_sentiment() for inference.
 
 🚀 Extension Ideas
-Try GRU, bi-LSTM, or Transformer-based architectures.
-Use pretrained embeddings (e.g., GloVe, FastText).
-Perform hyperparameter tuning (learning rate, hidden size, dropout).
-Add attention mechanisms for explainable predictions.
-Integrate experiment tracking with tools like Weights & Biases or MLflow.
-"""
+Test GRU, bi-LSTM, or Transformer architectures.
+Add pretrained embeddings (GloVe, FastText).
+Integrate attention mechanisms.
+Apply hyperparameter tuning or experiment tracking (e.g., W&B).
+------------------------------------------------
+🧩 2. spaCy NVIDIA Product NLP Pipeline
+Notebook: spacy_nvidia_track.ipynb
 
--------------------------------------------------------------------------------------------------------------------------------
+🔍 Overview
+Explores spaCy 2025 capabilities through exhaustive linguistic analysis of NVIDIA product descriptions.
 
-https://github.com/nlp26/Good_Old_New_NLP/blob/main/spacy_nvidia_track.ipynb
+⚙️ Workflow
+Tokenization, POS, and Dependency Parsing of product texts.
+Named Entity Recognition (NER) using en_core_web_trf and en_core_web_md.
+EntityRuler: Add domain-specific recognition rules for NVIDIA terms.
+Vector Similarity: Compare semantic relationships between products.
+Performance Benchmarking: Measure throughput of transformer vs. vector pipelines.
 
-"""
-README — spaCy NVIDIA Test Notebook
+🧪 Results
+Visual dependency graphs via displacy.
+Entity comparison between transformer and standard models.
+Timing analysis for scalability insights.
 
-This notebook demonstrates how to test spaCy comprehensively:
+💾 How to Run
+pip install spacy requests numpy
+python -m spacy download en_core_web_trf
+python -m spacy download en_core_web_md
 
-1. **Tokenization, POS, Dependency, and NER** tested on real NVIDIA product data.
-2. **Transformer vs vector models** compared side-by-side.
-3. **EntityRuler** shows domain-specific rule enhancement.
-4. **Vector similarity** evaluates semantic proximity to hardware terms.
-5. **Performance metrics** benchmark model latency.
+Run cells in sequence to analyze and visualize outputs.
 
-### Extension ideas
-- Add similarity clustering (using cosine distances)
-- Integrate SentenceTransformers for richer semantic embeddings
-- Train custom NER with NVIDIA-specific dataset
-- Cache model inference for larger datasets
+🚀 Extension Ideas
+Add similarity clustering using cosine distance.
+Integrate SentenceTransformers for better embeddings.
+Fine-tune custom NER on NVIDIA corpora.
+Cache inferences and pipeline components for speed.
+------------------------------------------------
+🤖 3. Hugging Face Transformers — NVIDIA NLP Suite
+Notebook: hf_nvidia_track.ipynb
 
-Use this as a baseline to evaluate new spaCy releases or GPU-optimized pipelines.
-"""
--------------------------------------------------------------------------------------------------------------------------------
+🔍 Overview
+Performs an end-to-end NLP evaluation of NVIDIA product data using Hugging Face Transformers pipelines.
 
-https://github.com/nlp26/Good_Old_New_NLP/blob/main/hf_nvidia_track.ipynb
+⚙️ Tasks Covered
+NER: Detects entities like product names and architectures.
+Summarization: Generates concise descriptions.
+Zero-shot Classification: Categorizes products (GPU, Platform, AI System).
+Embedding Similarity: Computes semantic closeness among product names.
 
-""" README — Hugging Face Transformers NVIDIA NLP Test
+🧠 Models Used
+Task	Model	Description
+Named Entity Recognition	dslim/bert-base-NER	Robust general-purpose NER
+Summarization	facebook/bart-large-cnn	High-quality abstractive summarization
+Classification	facebook/bart-large-mnli	Zero-shot category assignment
+Embeddings	sentence-transformers/all-MiniLM-L6-v2	Sentence-level semantic similarity
 
-This notebook demonstrates a comprehensive NLP evaluation using Hugging Face pipelines:
+💾 How to Run
+pip install transformers datasets torch sentencepiece accelerate
 
-Tasks Covered
-NER: Extracts entities (models, architectures, hardware terms)
-Summarization: Generates concise summaries of NVIDIA product names or descriptions
-Zero-shot Classification: Assigns each product to categories like GPU, AI System, or Platform
-Embedding Similarity: Measures semantic closeness among product names
-Models Used
-dslim/bert-base-NER — general-purpose named entity recognition
-facebook/bart-large-cnn — summarization
-facebook/bart-large-mnli — zero-shot classification
-sentence-transformers/all-MiniLM-L6-v2 — sentence embeddings for similarity
-How to Run
-Install dependencies via pip commands in the setup cell.
-Run all cells sequentially in a Jupyter or Colab environment.
-Review outputs printed for each NVIDIA product name.
-Modify candidate_labels or extend with your own data for custom evaluations.
-Extension Ideas
-Replace MiniLM with bge-large or text-embedding-3-large for higher embedding accuracy.
-Use faiss or qdrant for scalable vector similarity search.
-Add question-answering (pipeline('question-answering')) for product feature extraction.
-Integrate results into a FastAPI or Streamlit dashboard. """
+Run sequentially in Jupyter or Colab. Modify candidate_labels for custom category evaluation.
 
+🚀 Extension Ideas
+Swap MiniLM with bge-large or text-embedding-3-large.
+Use faiss or qdrant for scalable similarity search.
+Add question-answering for detailed product insights.
+Integrate results with FastAPI or Streamlit for live demos.
 
-
+🧭 Repository Vision
+Good_Old_New_NLP bridges the past and future of NLP — modernizing foundational methods (like LSTMs and NER) with cutting-edge transformer ecosystems, providing a practical comparative framework for educational and production use.
