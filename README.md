@@ -6,28 +6,45 @@ Old NLP Solutions in modern stack
 https://github.com/nlp26/Good_Old_New_NLP/blob/main/amazon_torch_NLP.ipynb
 
 """
-README - Amazon Review Sentiment Analysis with LSTM
+README — Amazon Review Sentiment Analysis with LSTM
+This notebook demonstrates a complete workflow for sentiment analysis on the Amazon Polarity dataset using a Long Short-Term Memory (LSTM) network built with PyTorch.
 
-This project demonstrates a simple sentiment analysis model using a Long Short-Term Memory (LSTM) network in PyTorch. The model is trained on the Amazon Polarity dataset to classify reviews as either positive or negative.
+🔍 Overview
+Trains an LSTM model to classify Amazon reviews as positive or negative.
+Uses the datasets library for data handling and torchtext for tokenization and batching.
+Implements all major NLP preprocessing, training, and evaluation steps in a reproducible pipeline.
 
-Project Steps
-Import Libraries: Essential libraries for data handling, processing, and model building are imported.
-Load Dataset: The Amazon Polarity dataset is loaded using the datasets library.
-Preprocess Data: Review texts and their corresponding labels are extracted and prepared.
-Split Data: The dataset is split into training and validation sets.
-Tokenization & Vocabulary: Text data is tokenized, and a vocabulary is built from the training data.
-Custom PyTorch Dataset: A custom Dataset class is created to handle data loading and processing for PyTorch DataLoaders.
-DataLoader Setup: DataLoaders are set up for efficient batching of training and validation data.
-Model Definition: A simple LSTM-based classification model is defined using PyTorch's nn.Module.
-Training Setup: The optimizer and loss function are configured for model training.
-Training Loop: The model is trained on the training data for a specified number of epochs.
-Evaluation: The trained model is evaluated on the validation set, and metrics like accuracy, precision, recall, and F1-score are calculated.
-Save Model: The trained model's state dictionary is saved for future use.
-Load and Predict: The saved model is loaded, and a function is provided to predict the sentiment of new review texts.
-How to Run
-Ensure you have the necessary libraries installed (datasets, torch, torchtext, scikit-learn). You may need to run !pip install datasets torch torchtext scikit-learn.
-Execute the code cells sequentially in a Python environment like Google Colab or a local Jupyter Notebook.
-This notebook provides a basic example of building a text classification model using LSTMs. It can be extended further by exploring different model architectures, hyperparameter tuning, and more advanced text preprocessing techniques.
+⚙️ What the Notebook Covers
+Data Loading – Load Amazon Polarity dataset via datasets.load_dataset.
+Preprocessing – Extract review texts and labels; perform text cleaning and tokenization.
+Splitting – Create training and validation subsets.
+Vocabulary & Tokenizer – Build a word-level vocabulary using torchtext.
+Custom Dataset – Define a PyTorch Dataset for batched text inputs.
+DataLoaders – Create loaders for efficient mini-batch training.
+Model Architecture – Define a simple LSTM classifier using nn.Embedding, nn.LSTM, and nn.Linear.
+Training Loop – Optimize model with Adam, compute loss (BCE/CE), and track metrics per epoch.
+Evaluation – Compute accuracy, precision, recall, and F1-score.
+Model Saving – Save the trained model’s state_dict for reuse.
+Prediction – Provide a helper function to classify new text samples.
+
+🧪 Performance & Results
+Measures training and validation accuracy per epoch.
+Outputs confusion matrix and per-class performance metrics.
+Demonstrates generalization ability across validation data.
+
+💾 How to Run
+Ensure you have dependencies installed:
+pip install datasets torch torchtext scikit-learn
+Open the notebook in Jupyter or Google Colab.
+Run all cells sequentially — model training and evaluation will execute automatically.
+Use the provided predict_sentiment() function for inference on custom text inputs.
+
+🚀 Extension Ideas
+Try GRU, bi-LSTM, or Transformer-based architectures.
+Use pretrained embeddings (e.g., GloVe, FastText).
+Perform hyperparameter tuning (learning rate, hidden size, dropout).
+Add attention mechanisms for explainable predictions.
+Integrate experiment tracking with tools like Weights & Biases or MLflow.
 """
 
 -------------------------------------------------------------------------------------------------------------------------------
